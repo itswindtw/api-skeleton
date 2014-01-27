@@ -9,8 +9,8 @@ BUNDLE_GEMFILE = ENV['BUNDLE_GEMFILE'] || load_path('../Gemfile')
 require 'bundler/setup' if File.exist?(BUNDLE_GEMFILE)
 Bundler.require(:default, RACK_ENV)
 
-$LOAD_PATH << load_path('..')
+$LOAD_PATH << load_path('../app')
 $LOAD_PATH << load_path('../lib')
 
 puts "Initializing API service in #{RACK_ENV} mode"
-require 'config/application'
+require_relative 'application'
