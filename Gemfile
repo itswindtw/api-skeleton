@@ -10,6 +10,9 @@ gem 'sequel'
 gem 'sqlite3'
 gem 'thin'
 
+gem 'redis'
+gem 'redis-namespace'
+
 group :development do
   gem 'rerun'
   gem 'rb-fsevent'
@@ -21,6 +24,7 @@ group :test do
   gem 'bogus'
   # gem 'database_cleaner'
   gem 'timecop'
+  gem 'mock_redis'
 end
 
 gem 'bcrypt-ruby'

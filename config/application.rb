@@ -14,5 +14,10 @@ rescue
   Sequel::Migrator.run(DB, File.join(BASE_PATH, 'db/migrations'))
 end
 
+# Redis
+require 'redis'
+require 'redis-namespace'
+$redis = Redis::Namespace.new('creole', :redis => Redis.new)
+
 # API
 require 'api/base'
