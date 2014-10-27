@@ -1,33 +1,36 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 gem 'grape'
-gem 'oj'
-gem 'multi_json'
 gem 'roar'
+# gem 'grape-swagger'
 
 gem 'sequel'
-# gem 'moneta'
 gem 'sqlite3'
-gem 'thin'
-
-gem 'redis'
-gem 'redis-namespace'
+# gem 'moneta'
 
 group :development do
+  gem 'rubocop', require: false
   gem 'rerun'
-  gem 'rb-fsevent'
+  gem 'rb-fsevent' # if OSX
 end
 
 group :test do
   gem 'rspec'
   gem 'rack-test'
+  gem 'factory_girl'
+  gem 'simplecov', require: false
   gem 'bogus'
-  # gem 'database_cleaner'
-  gem 'timecop'
-  gem 'mock_redis'
+  gem 'database_cleaner'
+  gem 'webmock'
 end
 
-gem 'bcrypt-ruby'
+# gem 'bcrypt-ruby'
 
+# gem 'thin'
 # gem 'unicorn'
 # gem 'puma'
+
+# gem 'rack-cors'
+
+# gem 'redis'
+# gem 'redis-namespace'

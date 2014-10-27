@@ -1,5 +1,11 @@
 .DS_Store
-
-log/*.log
-*.sqlite3
 Gemfile.lock
+
+db/*
+!db/migrations
+
+log/*
+!log/.gitkeep
+coverage
+
+.ruby-version

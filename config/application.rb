@@ -1,7 +1,3 @@
-# Logger
-require 'logger'
-$logger = Logger.new File.join(BASE_PATH, "log/#{RACK_ENV}.log")
-
 # Database
 require 'sequel'
 config = YAML.load_file(File.join(BASE_PATH, 'config/database.yml'))[RACK_ENV]
@@ -13,11 +9,6 @@ begin
 rescue
   Sequel::Migrator.run(DB, File.join(BASE_PATH, 'db/migrations'))
 end
-
-# Redis
-require 'redis'
-require 'redis-namespace'
-$redis = Redis::Namespace.new('creole', :redis => Redis.new)
 
 # API
 require 'api/base'

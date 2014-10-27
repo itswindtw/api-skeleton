@@ -1,15 +1,17 @@
 require 'spec_helper'
 
+def app
+  API::Base
+end
+
 describe API::SampleAPI do
   include Rack::Test::Methods
 
-  def app
-    API::Base
-  end
-
-  context "/hello" do
+  context '/hello' do
     before { get 'hello' }
-    let(:response) { MultiJson.load(last_response.body) }
-    specify { response.should == { "Hello" => "Rack" } }
+    it 'return default response' do
+      hash = { 'Hello' => 'Rack' }
+      expect(parsed_response).to eq(hash)
+    end
   end
 end

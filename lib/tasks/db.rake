@@ -7,23 +7,23 @@ namespace :db do
     MIGRATIONS_DIR = ENV['MIGRATIONS_DIR'] || 'db/migrations'
   end
 
-  task :configuration => :environment do
+  task configuration: :environment do
     config_path = File.expand_path('../../config/database.yml', File.dirname(__FILE__))
     @config = YAML.load_file(config_path)[DATABASE_ENV]
   end
 
-  task :establish_connection => :configuration do
+  task establish_connection: :configuration do
     DB = Sequel.connect(@config)
     Sequel.extension :migration
   end
 
-  task :drop => :establish_connection do
-    Sequel::Migrator.run(DB, MIGRATIONS_DIR, :target => 0)
+  task drop: :establish_connection do
+    Sequel::Migrator.run(DB, MIGRATIONS_DIR, target: 0)
   end
 
-  task :migrate => :establish_connection do
+  task migrate: :establish_connection do
     if Sequel::Migrator.is_current?(DB, MIGRATIONS_DIR)
-      puts "No need to migrate."
+      puts 'No need to do migration.'
     else
       Sequel::Migrator.run(DB, MIGRATIONS_DIR)
       Rake::Task['db:schema:dump'].invoke
@@ -31,7 +31,7 @@ namespace :db do
   end
 
   namespace :schema do
-    task :dump => :establish_connection do
+    task dump: :establish_connection do
       DB.extension :schema_dumper
 
       File.open('db/schema.rb', 'w') do |f|

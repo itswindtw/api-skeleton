@@ -1,13 +1,18 @@
 # API Skeleton
 
-This project template highly inspired by HypoCard::Solid and [Service Skeleton](https://github.com/reverbdev/service-skeleton).
+This is a project template derived from [HypoCard](http://hypo.cc/date.html). Based on Grape, Roar and Sequel, this repo provides a starting point for building Web API in Ruby.
 
 ## How to use
+  Todo...
 
-* put your API into api/ (avoid heavy business logics, they should be in models.)
-* [Roar](https://github.com/apotonick/roar) as representers instead of a raw representation.
-* migrations will be automatically applied. (be careful in production)
-* using Unicorn to deploy it. A sample unicorn.conf.rb is provided.
+## Library
+* [grape](http://intridea.github.io/grape/docs/index.html)
+* [roar](https://github.com/apotonick/roar)
+* [factory_girl](https://github.com/thoughtbot/factory_girl)
+* [webmock](https://github.com/bblimke/webmock)
+* [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner)
+* [simplecov](https://github.com/colszowka/simplecov)
+* [rubocop](https://github.com/bbatsov/rubocop)
 
 ## tools
 * script/console [RACK_ENV]
