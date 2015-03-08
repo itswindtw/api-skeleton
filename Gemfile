@@ -11,7 +11,6 @@ gem 'sqlite3'
 group :development do
   gem 'rubocop', require: false
   gem 'rerun'
-  gem 'rb-fsevent' # if OSX
 end
 
 group :test do
