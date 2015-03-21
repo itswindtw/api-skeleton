@@ -7,7 +7,8 @@ module API
     format :json
 
     # handle default exception
-    rescue_from :all do |_e|
+    rescue_from :all do |e|
+      # Base.logger.error(e)
       rack_response({})
     end
 
