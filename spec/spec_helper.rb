@@ -3,6 +3,7 @@ require 'bogus/rspec'
 require 'rack/test'
 require 'factory_girl'
 require 'simplecov'
+require 'database_cleaner'
 
 SimpleCov.start do
   add_filter '/spec/'
@@ -10,6 +11,7 @@ end
 
 ENV['RACK_ENV'] = 'test'
 require_relative '../config/environment'
+require_relative '../config/application'
 
 Dir['./spec/support/**/*.rb'].each { |f| require f }
 RSpec.configure do |config|
@@ -27,3 +29,5 @@ RSpec.configure do |config|
     end
   end
 end
+
+require 'api/base'
